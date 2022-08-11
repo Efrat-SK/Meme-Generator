@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body onload="onInit()">
+    <header class="header flex screen">
+        <div class="logo flex">meme gene</div>
+        <nav class="nav-list-container flex">
+            <ul class="nav-list flex clean-list">
+                <li><a href="#">gallery</a></li>
+                <li><a href="#">memes</a></li>
+                <li><a href="#">about</a></li>
+            </ul>
+        </nav>
+        <button class="toggle-menu" onclick="toggleMenu()">☰</button>
+    </header>
+    <main class="screen">
+        <section class="gallery screen">
+            <section class="control-area flex">
+                <div class="search-box-container">
+                    <input type="text" placeholder="search">
+                </div>
+                <div class="tag-list-container flex">
+                    <ul class="tag-list">happy cool dog</ul>
+                    <button class="more-tags-btn">more</button>
+                </div>
+            </section>
+            <section class="imgs-container grid"> </section>
+        </section>
+        <section class="editor flex hidden">
+            <div class="canvas-container">
+                <canvas id="canvas" width="300px" height="300px"></canvas>
+            </div>
+            <div class="editor-area flex">
+                <input type="text" name="txt" class="txtInput" value="Enter text" autocomplete="off" />
+                <section class="edit-control flex">
+                    <section class="edit-btns edit-1 flex">
+                        <button class="move-line-up-btn" onclick="onMoveLine(5)"><img src="icon/arrow-up-3.png"
+                                alt=""></button>
+                        <button class="move-line-down-btn" onclick="onMoveLine(-5)"><img src="icon/down-arrow.png"
+                                alt=""></button>
+                        <button class="change-selected-line-btn" onclick="onToggleLine()"><img
+                                src="icon/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                        <button class="add-new-line-btn" onclick="onAddNewLine()"><img src="icon/add.png"
+                                alt=""></button>
+                        <button class="erase-line-btn" onclick="onDeleteLine()"><img src="icon/trash.png"
+                                alt=""></button>
+                    </section>
+                    <section class="edit-btns edit-2 flex">
+                        <button onClick="onEdit('increaseFont')"><img src="icon/increase font - icon.png"
+                                alt=""></button>
+                        <button onClick="onEdit('decreaseFont')"><img src="icon/decrease font - icon.png"
+                                alt=""></button>
+                        <button onClick="onEdit('alignRight')"><img src="icon/align-to-left.png" alt=""></button>
+                        <button onClick="onEdit('alignCenter')"><img src="icon/center-text-alignment.png"
+                                alt=""></button>
+                        <button onClick="onEdit('alignLeft')"><img src="icon/align-to-right.png" alt=""></button>
+                    </section>
+                    <section class="edit-selector edit-3 flex">
+                        <select onchange="onSetTextFont(value)" name="family-font-select" class="family-font-select"
+                            id="">
+                            <option value="impact">impact</option>
+                            <option value="poppins">poppins</option>
+                        </select>
+                        <input type="color" name="stroke-color-input" class="stroke-color-input" id="">
+                        <input type="color" name="fill-color-input" class="fill-color-input" id="">
+                    </section>
+                </section>
+                <button class="download-btn" onClick="onDownload()">download</button>
+        </section>
+        </div>
+        </section>
+    </main>
+
+
+    <script src="js/service/util.js"></script>
+    <script src="js/service/storage.service.js"></script>
+    <script src="js/service/gallery.service.js"></script>
+    <script src="js/galleryController.js"></script>
+    <script src="js/service/meme.service.js"></script>
+    <script src="js/memeController.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

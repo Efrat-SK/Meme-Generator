@@ -1,0 +1,15 @@
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+.clean-list{
+    list-style: none;
+}
+
+.hidden{
+    display: none;
+}
