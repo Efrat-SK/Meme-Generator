@@ -7,7 +7,7 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'Enter text',
+            txt: '',
             size: 20,
             align: 'center',
             fillColor: '#fefefe',
@@ -75,7 +75,7 @@ function moveLine(direction) {
 function addNewLine() {
     let line =
     {
-        txt: 'Enter text',
+        txt: '',
         size: 20,
         align: 'center',
         fillColor: '#fefefe',

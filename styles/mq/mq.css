@@ -17,8 +17,6 @@
         flex-direction: column;
         top: 60px;
         right: 0;
-        /* border-bottom: 5px solid red; */
-        /* height: 100vh; */
         height: calc(100vh - 60px);
         background-color: var(--color1);
         border-inline-start: 1px solid #1d1d1d;
@@ -39,8 +37,12 @@
 }
 
 @media only screen and (min-width: 600px) {
+    .toggle-menu{
+        display: none;
+    }
+    
     .screen {
-        max-width: 1000px;
+        max-width: 870px;
         margin-inline-start: auto;
         margin-inline-end: auto;
     }

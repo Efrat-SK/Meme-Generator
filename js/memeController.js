@@ -21,14 +21,14 @@ function resizeCanvas() {
     gElCanvas.height = elContainer.offsetHeight
 }
 
-function renderMeme() {
+function renderMeme(isDownload = false) {
     const { selectedImgId, selectedLineIdx, lines } = getMeme()
     const selector = `.img${selectedImgId}`
     const elMeme = document.querySelector(selector)
 
     gCtx.drawImage(elMeme, 0, 0, canvas.width, canvas.height)
 
-    if (lines.length > 0) {
+    if (lines.length > 0 && !isDownload) {
         const { size, yPos } = lines[selectedLineIdx]
         gCtx.beginPath()
         gCtx.globalAlpha = 0.5
@@ -39,10 +39,12 @@ function renderMeme() {
     }
     lines.forEach(line => {
         const { txt, size, align, fillColor, strokeColor, yPos, fontFamily } = line
-        gCtx.beginPath()
-        gCtx.strokeStyle = 'white'
-        gCtx.rect(20, yPos - size, canvas.width - 40, 1.3 * size)
-        gCtx.stroke()
+        if (!isDownload) {
+            gCtx.beginPath()
+            gCtx.strokeStyle = 'white'
+            gCtx.rect(20, yPos - size, canvas.width - 40, 1.3 * size)
+            gCtx.stroke()
+        }
 
         gCtx.beginPath()
         gCtx.textAlign = align
@@ -86,7 +88,6 @@ function onFillColorChange(ev) {
 }
 
 function onEdit(action) {
-    console.log('edit: ', action)
     editTextProperties(action)
     renderMeme()
 }
@@ -105,11 +106,16 @@ function onMoveLine(direction) {
 function onAddNewLine() {
     addNewLine()
     renderMeme()
+    setSelectedLine()
 }
 
 function onToggleLine() {
     toggleLine()
     renderMeme()
+    setSelectedLine()
+}
+
+function setSelectedLine() {
     const { txt, fillColor, strokeColor, fontFamily } = getSelectedLine()
 
     document.querySelector('.txtInput').value = txt
@@ -124,16 +130,11 @@ function onDeleteLine() {
 }
 
 function onDownload() {
+    renderMeme(true)
     var link = document.createElement('a')
     link.download = 'my_meme.png'
     link.href = canvas.toDataURL()
     link.click()
     link.remove()
-//     console.log('canvas.toDataURL(): ', canvas.toDataURL())
-//     saveToStorage(STORAGE_KEY, canvas.toDataURL())
-
-//     var dataURL = localStorage.getItem(canvasName)
-//     var img = new Image;
-//     img.src = dataURL;
-//     console.log('img: ', img)
+    renderMeme(false)
 }
