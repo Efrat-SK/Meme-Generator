@@ -3,6 +3,12 @@
     background-color: var(--color5);
 }
 
+.tag-list{
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 500px;
+}
+
 .img-container > img{
     border-radius: 10px;
 }

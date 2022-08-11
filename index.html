@@ -25,11 +25,11 @@
         <section class="gallery screen">
             <section class="control-area flex">
                 <div class="search-box-container">
-                    <input type="text" placeholder="search">
+                    <input type="text" placeholder="search" onkeyup="onfilterImgs(this.value)">
                 </div>
                 <div class="tag-list-container flex">
-                    <ul class="tag-list">happy cool dog</ul>
-                    <button class="more-tags-btn">more</button>
+                    <ul class="tag-list flex clean-list"></ul>
+                    <button class="more-tags-btn hidden">more</button>
                 </div>
             </section>
             <section class="imgs-container grid"> </section>
