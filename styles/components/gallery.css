@@ -4,10 +4,11 @@
 }
 
 .tag-list {
-    gap: 10px;
     flex-wrap: wrap;
     width: 500px;
     align-items: flex-end;
+    justify-content: center;
+    line-height: 37px;
 }
 
 .tag-list>*:hover {
@@ -27,6 +28,9 @@
 
 .search-box-container>input {
     height: 40px;
-    width: 150px;
+    width: 200px;
     border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }

@@ -8,6 +8,15 @@
     border-radius: 30px;
 }
 
+.editor {
+    flex-direction: column;
+}
+
+.editor>* {
+    margin-top: 10px;
+}
+
+
 .editor-area {
     border-radius: 30px;
     background-color: var(--color5);

@@ -8,11 +8,11 @@ var gMeme = {
     lines: [
         {
             txt: '',
-            size: 20,
+            size: 30,
             align: 'center',
             fillColor: '#fefefe',
             strokeColor: '#22252c',
-            yPos: 50,
+            yPos: 70,
             fontFamily: 'impact'
         }
     ]
@@ -76,11 +76,11 @@ function addNewLine() {
     let line =
     {
         txt: '',
-        size: 20,
+        size: 30,
         align: 'center',
         fillColor: '#fefefe',
         strokeColor: '#22252c',
-        yPos: 50,
+        yPos: 70,
         fontFamily: 'impact'
     }
 

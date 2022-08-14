@@ -4,6 +4,7 @@ var gElCanvas
 var gCtx
 
 function initEditor() {
+    addListeners()
     initCanvas()
     renderMeme()
 }
@@ -11,14 +12,29 @@ function initEditor() {
 function initCanvas() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    // resizeCanvas()
-    addListeners()
+    resizeCanvas()
 }
 
 function resizeCanvas() {
-    const elContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = elContainer.offsetWidth
-    gElCanvas.height = elContainer.offsetHeight
+    let widths = [0, 450, 600, 1000]
+    let elCanvas = document.querySelector('canvas')
+    if (window.innerWidth >= widths[0] && window.innerWidth < widths[1]) {
+        elCanvas.height = 250
+        elCanvas.width = 250
+        renderMeme()
+    } else if (window.innerWidth >= widths[1] && window.innerWidth < widths[2]) {
+        elCanvas.height = 300
+        elCanvas.width = 300
+        renderMeme()
+    } else if (window.innerWidth >= widths[2] && window.innerWidth < widths[3]) {
+        elCanvas.height = 400
+        elCanvas.width = 400
+        renderMeme()
+    } else {
+        elCanvas.height = 450
+        elCanvas.width = 450
+        renderMeme()
+    }
 }
 
 function renderMeme(isDownload = false) {
@@ -68,6 +84,11 @@ function addListeners() {
     elSColor.addEventListener('input', onStrokeColorChange)
     const elFColor = document.querySelector('.fill-color-input')
     elFColor.addEventListener('input', onFillColorChange)
+
+    window.addEventListener('resize', () => {
+        resizeCanvas()
+        renderMeme()
+    })
 }
 
 function onTextChange(ev) {
