@@ -16,17 +16,13 @@ function initCanvas() {
 }
 
 function resizeCanvas() {
-    let widths = [0, 450, 600, 1000]
+    let widths = [0, 600, 1000]
     let elCanvas = document.querySelector('canvas')
-    if (window.innerWidth >= widths[0] && window.innerWidth < widths[1]) {
-        elCanvas.height = 250
-        elCanvas.width = 250
-        renderMeme()
-    } else if (window.innerWidth >= widths[1] && window.innerWidth < widths[2]) {
+     if (window.innerWidth >= widths[0] && window.innerWidth < widths[1]) {
         elCanvas.height = 300
         elCanvas.width = 300
         renderMeme()
-    } else if (window.innerWidth >= widths[2] && window.innerWidth < widths[3]) {
+    } else if (window.innerWidth >= widths[1] && window.innerWidth < widths[2]) {
         elCanvas.height = 400
         elCanvas.width = 400
         renderMeme()
