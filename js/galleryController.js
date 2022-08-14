@@ -20,10 +20,9 @@ function renderImgs(imgs = getImgs()) {
 
 function renderTugsList() {
     const tags = getTagsList()
-    console.log('tags: ', tags)
     let strHTML = []
     for (const keyWord in tags) {
-        strHTML += `<li onclick="onTagClick('${keyWord}')" style="font-size:${10 + 1.5 * tags[keyWord]}px ;">${keyWord} &nbsp;</li>`
+        strHTML += `<span class="tag" onclick="onTagClick('${keyWord}')" style="font-size:${10 + 1.5 * tags[keyWord]}px ;">${keyWord} &nbsp;</span>`
     }
     document.querySelector('.tag-list').innerHTML = strHTML
 }

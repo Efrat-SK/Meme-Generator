@@ -40,7 +40,7 @@ function addTagClick(keyWord) {
 }
 
 function getFilterImgs(keyWord){
-    return  gImgs.filter(img => img.keywords.some(kw => kw.includes(keyWord)))
+    return  gImgs.filter(img => img.keywords.some(kw => kw.toLowerCase().includes(keyWord.toLowerCase())))
 }
 
 function getImgs() {

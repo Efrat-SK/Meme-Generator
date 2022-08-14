@@ -3,24 +3,29 @@
     background-color: var(--color5);
 }
 
-.tag-list{
+.tag-list {
     gap: 10px;
     flex-wrap: wrap;
     width: 500px;
+    align-items: flex-end;
 }
 
-.img-container > img{
+.tag-list>*:hover {
+    cursor: pointer;
+}
+
+.img-container>img {
     border-radius: 10px;
 }
 
-.img-container > img:hover {
+.img-container>img:hover {
     border-width: 3px;
     border-color: var(--color4);
     box-shadow: 3px 3px 3px 3px #888888;
     cursor: pointer;
 }
 
-.search-box-container > input{
+.search-box-container>input {
     height: 40px;
     width: 150px;
     border-radius: 10px;
